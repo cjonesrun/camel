@@ -2,6 +2,8 @@ package camel;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
+
+import camel.exceptions.JSONValidationException;
 import camel.processor.*;
 
 public class Routes extends RouteBuilder {
@@ -9,17 +11,22 @@ public class Routes extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		
-		onException(Exception.class).process(new Log("errorLog")).to("file:/tmp/camel/errors");
+		onException(JSONValidationException.class)
+		.to("log:camel?showAll=true&multiline=true&level=WARN")
+		.to("file:/tmp/camel/errors")
+		/*.log(LoggingLevel.ERROR, "")
+		.to("file:/tmp/camel/errors")*/;
 		
 		from("file:/tmp/camel?include=.*.json&move=${file:name}.processed&delay=2000")
 		//.errorHandler(deadLetterChannel("direct:errorLogger"))
+		//.log(LoggingLevel.INFO, "Validating JSON")
 		.process(new JSONValidator())
-		//.log(LoggingLevel.INFO, "log")
-		
-
+		//.log(LoggingLevel.INFO, "Transforming Content")
 		.bean(Transform.class, "transformContent")
-		.process(new Log("three"));
-	
+		//.log(LoggingLevel.INFO, "Sending to JMS")
+		.to("file:/tmp/camel/processed");
+		
+		
 		//.to("file:/tmp/camel/output");
 		
 		/*from("direct:errorLogger")
@@ -27,8 +34,9 @@ public class Routes extends RouteBuilder {
 		*/
 		
 		
-		/*from("file:/tmp/camel/errors?include=.*.json&move=${file:name}.processed")
-		.process(new Log());*/
+		/*from("file:/tmp/camel/errors?include=.*.json&move=${file:name}.error")
+		.log(LoggingLevel.ERROR, "Error files received.");*/
+		
 		
 	}
 

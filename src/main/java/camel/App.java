@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 public class App 
 {
-	public static Logger LOG = LoggerFactory.getLogger(App.class );
+	public static Logger LOG = LoggerFactory.getLogger("logger");
 	public static final void main(String[] s)
 	{
 		
@@ -18,6 +18,8 @@ public class App
 		
 		try {
 			ctx.addRoutes(r);
+			ctx.setTracing(true);
+			
 			ctx.start();
 			Thread.sleep(5*60*1000);
 			ctx.stop();
