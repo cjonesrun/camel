@@ -7,7 +7,7 @@ to start the camel folder watcher:
 
 mvn exec:java -PCamelGo
 
-this will take a file from /tmp/camel, log its contents to console and move the file to .processed or to error/ if something goes wrong
+this will take a file from /tmp/camel, log its contents to console and move the file to .processed or to /tmp/camel/errors/ if something goes wrong
 
 to start the JMS server:
 
