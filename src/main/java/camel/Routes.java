@@ -9,7 +9,7 @@ public class Routes extends RouteBuilder {
 		
 		onException(Exception.class).process(new Log("errorLog")).to("file:/tmp/camel/errors");
 		
-		from("file:/tmp/camel?include=.*.json&move=${file:name}.processed")
+		from("file:/tmp/camel?include=.*.json&move=${file:name}.processed&delay=2000")
 		//.errorHandler(deadLetterChannel("direct:errorLogger"))
 		.process(new Log("one"))
 		

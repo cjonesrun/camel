@@ -1,4 +1,4 @@
-package base;
+package jms;
 
 public class MessageProtocol 
 {

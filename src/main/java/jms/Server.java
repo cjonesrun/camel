@@ -1,4 +1,4 @@
-package base;
+package jms;
 
 import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.ActiveMQConnectionFactory;
