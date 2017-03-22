@@ -63,7 +63,7 @@ public class Server implements MessageListener {
  
     public void onMessage(Message message) {
     	
-    	System.out.println("Server: " + message.toString());
+    	//System.out.println("Server: " + message.toString());
         try {
             TextMessage response = this.session.createTextMessage();
             
