@@ -2,6 +2,7 @@ package camel;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
+import camel.processor.*;
 
 public class Routes extends RouteBuilder {
 
@@ -12,8 +13,8 @@ public class Routes extends RouteBuilder {
 		
 		from("file:/tmp/camel?include=.*.json&move=${file:name}.processed&delay=2000")
 		//.errorHandler(deadLetterChannel("direct:errorLogger"))
-		.process(new Log("one"))
-		.log(LoggingLevel.INFO, "log")
+		.process(new JSONValidator())
+		//.log(LoggingLevel.INFO, "log")
 		
 
 		.bean(Transform.class, "transformContent")
