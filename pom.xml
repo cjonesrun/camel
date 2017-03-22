@@ -60,16 +60,17 @@
           <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                    <configuration>
-                        <mainClass>${target.main.class}</mainClass>
-                        <includePluginDependencies>false</includePluginDependencies>
-                        <classpathScope>runtime</classpathScope>
-                        <systemProperties>
-                            <property>
-                                <key>java.util.logging.config.file</key>
-                                <value>logging.properties</value>
-                            </property>
-                        </systemProperties>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>${target.main.class}</mainClass>
+                    <includePluginDependencies>false</includePluginDependencies>
+                    <classpathScope>runtime</classpathScope>
+                    <systemProperties>
+                        <property>
+                            <key>java.util.logging.config.file</key>
+                            <value>logging.properties</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
             </plugin>
         </plugins>

@@ -7,9 +7,10 @@ import org.slf4j.LoggerFactory;
 
 public class App 
 {
+	public static Logger LOG = LoggerFactory.getLogger(App.class );
 	public static final void main(String[] s)
 	{
-		Logger LOG = LoggerFactory.getLogger(App.class );
+		
 		LOG.info("Logging output to console");
 		
 		Routes r = new Routes();

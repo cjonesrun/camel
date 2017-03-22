@@ -15,6 +15,6 @@ public class Log implements Processor {
 
 
 	public void process(Exchange exchange) throws Exception {
-		System.out.println(prefix + ": Now processing the String: " + exchange.getIn().getBody(String.class));
+		App.LOG.info(prefix + ": Now processing the String: " + exchange.getIn().getBody(String.class));
 	}
 }
