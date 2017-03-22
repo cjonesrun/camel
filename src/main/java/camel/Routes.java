@@ -1,6 +1,8 @@
 package camel;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 
 import camel.exceptions.JSONValidationException;
@@ -12,6 +14,13 @@ public class Routes extends RouteBuilder {
 	public void configure() throws Exception {
 		
 		onException(JSONValidationException.class)
+		.process(new Processor() {
+	          public void process(Exchange exchange) throws Exception {
+	                Exception cause = exchange.getProperty(Exchange.EXCEPTION_CAUGHT, Exception.class);
+	                // we now have the caused exception
+	                cause.printStackTrace();
+	          }
+	        })
 		.to("log:camel?showAll=true&multiline=true&level=WARN")
 		.to("file:/tmp/camel/errors")
 		/*.log(LoggingLevel.ERROR, "")
