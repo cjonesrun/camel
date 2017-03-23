@@ -29,24 +29,20 @@ public class Routes extends RouteBuilder {
 		/*.log(LoggingLevel.ERROR, "")
 		.to("file:/tmp/camel/errors");*/
 		
-		from("file:"+ new File("working").getAbsolutePath() +"?include=.*.json&delete=true&delay=2000")
+		from("file:"+ App.WORKING_DIR.getAbsolutePath() +"?include=.*.json&move=./original/${file:name}&delay=2000")
 		.errorHandler(deadLetterChannel("direct:errorLogger"))
 		//.log(LoggingLevel.INFO, "Validating JSON")
 		.process(new JSONValidator())
 		//.log(LoggingLevel.INFO, "Transforming Content")
 		.bean(Transform.class, "transformContent")
 		//.log(LoggingLevel.INFO, "Sending to JMS")
-		.to("file:"+ new File("working/processed").getAbsolutePath());
-		
+		.to("file:"+ App.WORKING_DIR.getAbsolutePath() + "/processed");
 		
 		//.to("file:/tmp/camel/output");
 		
 		from("direct:errorLogger")
 			.to("log:camel?showAll=true&multiline=true&level=WARN")
-			.to("file:" + new File("working/errors").getAbsolutePath());
-		
-		/*from("file:/tmp/camel/errors?include=.*.json&move=${file:name}.error")
-		.log(LoggingLevel.ERROR, "Error files received.");*/
+			.to("file:" + App.WORKING_DIR.getAbsolutePath() + "/errors");
 		
 		
 	}

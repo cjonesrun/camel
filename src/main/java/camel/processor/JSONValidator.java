@@ -14,5 +14,6 @@ public class JSONValidator implements Processor {
 			throw new JSONValidationException("Empty JSONObject received.");
 		
 		camel.App.LOG.info(this.getClass().getCanonicalName() + " processing: " + x);
+		exchange.getIn().setBody(x + " #comment");
 	}
 }

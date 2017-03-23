@@ -4,14 +4,16 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.io.File;
 
 public class App 
 {
 	public static Logger LOG = LoggerFactory.getLogger("logger");
+	public static File WORKING_DIR = new File("working");
 	public static final void main(String[] s)
 	{
 		
-		LOG.info("Logging output to console");
+		LOG.info("Working Directory: " + WORKING_DIR.getAbsolutePath());
 		
 		Routes r = new Routes();
 		CamelContext ctx = new DefaultCamelContext();
