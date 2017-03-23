@@ -1,4 +1,4 @@
-Messing around with camel
+Messing around with camel 
 
 first:
 mvn compile
