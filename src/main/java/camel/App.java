@@ -18,7 +18,7 @@ public class App
 		
 		try {
 			ctx.addRoutes(r);
-			ctx.setTracing(true);
+			//ctx.setTracing(true);
 			
 			ctx.start();
 			Thread.sleep(5*60*1000);
