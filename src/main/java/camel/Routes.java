@@ -30,7 +30,7 @@ public class Routes extends RouteBuilder {
 		.to("log:camel?showAll=true&multiline=true&level=WARN");
 		
 		from("direct:errorLogger")
-			.to("log:camel?showAll=true&multiline=true&level=WARN")
+			.to("log:camel?showAll=true&multiline=true")
 			.to("file:" + App.WORKING_DIR.getAbsolutePath() + "/errors");
 		
 		

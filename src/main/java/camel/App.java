@@ -8,7 +8,7 @@ import java.io.File;
 
 public class App 
 {
-	public static Logger LOG = LoggerFactory.getLogger("logger");
+	public static Logger LOG = LoggerFactory.getLogger("default");
 	public static File WORKING_DIR = new File("working");
 	public static final void main(String[] s)
 	{
