@@ -3,5 +3,5 @@ target/
 .project
 .settings/
 working/app.log
-working/errors
-working/processed
+working/errors/
+working/processed/
