@@ -6,6 +6,9 @@ public class Transform {
 		
 		//throw new Exception (this.getClass().getCanonicalName() + " failed to process");
 		
+		/*System.out.println(body.getClass().getCanonicalName());
+		return body;*/
+		
 		return body.toUpperCase();
 	}
 }
