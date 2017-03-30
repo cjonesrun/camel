@@ -17,10 +17,10 @@
  
     <Loggers>
     
-    	<Logger name="default" level="info">
+    	<Logger name="com" level="info">
     		<AppenderRef ref="Console"/>
     	</Logger>
-    
+    	
         <Root level="info">
             <AppenderRef ref="RollingFile"/>
         </Root>

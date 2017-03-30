@@ -1,10 +1,10 @@
-package camel.processor;
+package com.camel.processor;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.json.JSONObject;
 
-import camel.exceptions.JSONValidationException;
+import com.camel.exceptions.JSONValidationException;
 
 public class JSONValidator implements Processor {
 
@@ -15,7 +15,7 @@ public class JSONValidator implements Processor {
 			JSONObject o = new JSONObject(x);
 		
 			o.put("comment", "here's a comment i just added");
-			camel.App.LOG.info(this.getClass().getCanonicalName() + " processing: " + o.toString(1));
+			com.camel.App.LOG.info(this.getClass().getCanonicalName() + " processing: " + o.toString(1));
 			exchange.getIn().setBody(o.toString());
 			
 		} catch (Exception e) {

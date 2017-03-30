@@ -1,4 +1,4 @@
-package camel;
+package com.camel;
 
 import org.apache.camel.component.file.GenericFile;
 

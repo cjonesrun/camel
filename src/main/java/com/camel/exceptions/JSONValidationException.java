@@ -1,4 +1,4 @@
-package camel.exceptions;
+package com.camel.exceptions;
 
 public class JSONValidationException extends Exception{
 	private static final long serialVersionUID = -2677560743549855434L;

@@ -1,4 +1,4 @@
-package jms;
+package com.jms;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 

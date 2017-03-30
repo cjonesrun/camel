@@ -89,21 +89,21 @@
         <profile>
             <id>CamelGo</id>
             <properties>
-                <target.main.class>camel.App</target.main.class>
+                <target.main.class>com.camel.App</target.main.class>
             </properties>
         </profile>
 
         <profile>
             <id>JMSClient</id>
             <properties>
-                <target.main.class>jms.Client</target.main.class>
+                <target.main.class>com.jms.Client</target.main.class>
             </properties>
         </profile>
 
         <profile>
             <id>JMSServer</id>
             <properties>
-                <target.main.class>jms.Server</target.main.class>
+                <target.main.class>com.jms.Server</target.main.class>
             </properties>
         </profile>
     </profiles>

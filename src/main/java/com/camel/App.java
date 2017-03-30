@@ -1,4 +1,4 @@
-package camel;
+package com.camel;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -8,12 +8,14 @@ import java.io.File;
 
 public class App 
 {
-	public static Logger LOG = LoggerFactory.getLogger("default");
+	public static Logger LOG = LoggerFactory.getLogger(App.class);
 	public static File WORKING_DIR = new File("working");
 	public static final void main(String[] s)
 	{
 		
-		LOG.info("Working Directory: " + WORKING_DIR.getAbsolutePath());
+		LOG.info("Working Directory: " + WORKING_DIR.getAbsolutePath() + " " + App.class.getPackage().toString());
+		LoggerFactory.getLogger("com.camel.one").info("camel.one log msg");
+		LoggerFactory.getLogger("com.camel.two").error("camel.two log msg");
 		
 		Routes r = new Routes();
 		CamelContext ctx = new DefaultCamelContext();

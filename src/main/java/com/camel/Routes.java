@@ -1,18 +1,19 @@
-package camel;
+package com.camel;
 
 import org.apache.camel.builder.RouteBuilder;
 
-import camel.processor.*;
+import com.camel.processor.*;
 
 public class Routes extends RouteBuilder {
 
-
+	static final String log = Routes.class.getCanonicalName();
+	
 	@Override
 	public void configure() throws Exception {
-		
-		// handle incoming files, send incoming to original/ and result to processed/
-		from("file:"+ App.WORKING_DIR.getAbsolutePath() +"?include=.*.json&move=./original/${file:name}&delay=2000")
-		//from("file:"+ App.WORKING_DIR.getAbsolutePath() +"?include=.*.json&delay=2000")
+		App.LOG.error("package: [" + log + "]");
+		// handle incoming files, move incoming to original/ and result to processed/
+		from("file:"+ App.WORKING_DIR.getAbsolutePath() +"?include=.*.json" +
+				"&move=" + App.WORKING_DIR.getAbsolutePath() + "/original/${file:name}&delay=2000")
 		.to("direct:processor")
 		.to("file:"+ App.WORKING_DIR.getAbsolutePath() + "/processed");
 		
@@ -27,10 +28,10 @@ public class Routes extends RouteBuilder {
 		.bean(Transform.class, "transformContent")
 		//.log(LoggingLevel.INFO, "Sending to JMS")
 		//.to("file:"+ App.WORKING_DIR.getAbsolutePath() + "/processed");
-		.to("log:camel?showAll=true&multiline=true&level=WARN");
+		.to("log:" + log + "?level=info&showAll=true&multiline=true");
 		
 		from("direct:errorLogger")
-			.to("log:camel?showAll=true&multiline=true")
+			.to("log:" + log + "?level=error&showAll=true&multiline=true")
 			.to("file:" + App.WORKING_DIR.getAbsolutePath() + "/errors");
 		
 		

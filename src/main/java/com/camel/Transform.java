@@ -1,4 +1,4 @@
-package camel;
+package com.camel;
 
 public class Transform {
 
