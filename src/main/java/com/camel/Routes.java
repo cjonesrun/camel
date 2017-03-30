@@ -28,10 +28,10 @@ public class Routes extends RouteBuilder {
 		.bean(Transform.class, "transformContent")
 		//.log(LoggingLevel.INFO, "Sending to JMS")
 		//.to("file:"+ App.WORKING_DIR.getAbsolutePath() + "/processed");
-		.to("log:" + log + "?level=info&showAll=true&multiline=true");
+		.to("log:" + log + "?level=INFO&showAll=true&multiline=true");
 		
 		from("direct:errorLogger")
-			.to("log:" + log + "?level=error&showAll=true&multiline=true")
+			.to("log:" + log + "?level=ERROR&showAll=true&multiline=true")
 			.to("file:" + App.WORKING_DIR.getAbsolutePath() + "/errors");
 		
 		
