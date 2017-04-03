@@ -14,28 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.example.spring.boot.rest.jpa;
+package com.service;
 
-import java.util.Random;
+import org.springframework.data.repository.CrudRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-@Component
-public class OrderService {
-
-    @Autowired
-    private BookRepository books;
-
-    private final Random amount = new Random();
-
-    public Order generateOrder() {
-        Order order = new Order();
-        order.setAmount(amount.nextInt(10) + 1);
-        
-        int x = (int) books.count();
-        
-        order.setBook(books.findOne(amount.nextInt(x) + 1));
-        return order;
-    }
+public interface OrderRepository extends CrudRepository<Order, Integer> {
 }

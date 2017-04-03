@@ -14,37 +14,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.example.spring.boot.rest.jpa;
+package com.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
-public class Database {
+@Entity
+@Table(name = "books")
+public class Book {
 
-    @Autowired
-    BookRepository books;
+    @Id
+    @GeneratedValue
+    private int id;
 
-    @Autowired
-    OrderRepository orders;
+    private String item;
 
-    public Book findBook(Integer bookid) {
-    	return books.findOne(bookid);
+    private String description;
+
+    public int getId() {
+        return id;
     }
-    
-    public Iterable<Book> findBooks() {
-        return books.findAll();
+
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Iterable<Order> findOrders() {
-    	return orders.findAll();
+    public String getItem() {
+        return item;
     }
-    
-    public Order findOrder(Integer id) {
-        return orders.findOne(id);
+
+    public void setItem(String item) {
+        this.item = item;
     }
-    public Order placeOrder(Object x) {
-    	System.out.println("KSAJDHAKSJHDKJASHD" + x);
-    	return null;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -14,9 +14,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.example.spring.boot.rest.jpa;
+package com.service;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public interface BookRepository extends CrudRepository<Book, Integer> {
+@Component
+public class Database {
+
+    @Autowired
+    BookRepository books;
+
+    @Autowired
+    OrderRepository orders;
+
+    public Book findBook(Integer bookid) {
+    	return books.findOne(bookid);
+    }
+    
+    public Iterable<Book> findBooks() {
+        return books.findAll();
+    }
+
+    public Iterable<Order> findOrders() {
+    	return orders.findAll();
+    }
+    
+    public Order findOrder(Integer id) {
+        return orders.findOne(id);
+    }
+    public Order placeOrder(Object x) {
+    	System.out.println("KSAJDHAKSJHDKJASHD" + x);
+    	return null;
+    }
 }
