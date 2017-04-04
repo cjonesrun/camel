@@ -5,28 +5,21 @@
 	<artifactId>camel-go</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-    <properties>
-        <camel.version>2.18.3</camel.version>
-        <log.version>2.8.1</log.version>
-        <spring.boot-version>1.5.2.RELEASE</spring.boot-version>
-    </properties>
+	<properties>
+		<camel.version>2.18.3</camel.version>
+		<log.version>2.8.1</log.version>
+		<spring.boot-version>1.5.2.RELEASE</spring.boot-version>
+	</properties>
 
 	<dependencyManagement>
-	    <dependencies>
-	      <dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-dependencies</artifactId>
-	        <version>${spring.boot-version}</version>
-	        <type>pom</type>
-	        <scope>import</scope>
-	      </dependency>
-	      <dependency>
-	        <groupId>org.apache.camel</groupId>
-	        <artifactId>camel-parent</artifactId>
-	        <version>${camel.versionl}</version>
-	        <type>pom</type>
-	        <scope>import</scope>
-	      </dependency>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -36,54 +29,132 @@
 			<artifactId>activemq-core</artifactId>
 			<version>5.7.0</version>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-core -->
-		<dependency>
-		    <groupId>org.apache.camel</groupId>
-		    <artifactId>camel-core</artifactId>
-            <version>${camel.version}</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
-		<dependency>
-		    <groupId>org.json</groupId>
-		    <artifactId>json</artifactId>
-		    <version>20160810</version>
-		</dependency>
 
 		<!-- spring-boot -->
-	    <dependency>
-	    	<groupId>org.springframework.boot</groupId>
-	    	<artifactId>spring-boot-starter-web</artifactId>
-	    </dependency>
-	    <dependency>
-	    	<groupId>org.springframework.boot</groupId>
-	    	<artifactId>spring-boot-starter-data-jpa</artifactId>
-	    </dependency>
-	    <dependency>
-	    	<groupId>org.apache.camel</groupId>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
-	    </dependency>
+			<version>${camel.version}</version>
+		</dependency>
 
-        <!-- logging -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>${log.version}</version>
-            <scope>runtime</scope>
-        </dependency>	
+		<!-- Camel -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-servlet</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jackson</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-swagger-java</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jpa</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
+		<!-- JDBC -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-core 
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jpa</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-servlet</artifactId>
+			<version>${camel.version}</version>
+		</dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/org.json/json 
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency> -->
+
+		<!-- spring-boot
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-boot-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>  -->
+
+
+		<!-- logging 
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>runtime</scope>
+		</dependency> -->
+
+		<!-- junit <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+			</dependency> -->
 	</dependencies>
 
 	<build>
@@ -94,48 +165,61 @@
 				<version>3.5.1</version>
 				<configuration>
 					<source />
-				  <target />
+					<target />
 				</configuration>
 			</plugin>
-          <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <configuration>
-                    <mainClass>${target.main.class}</mainClass>
-                    <includePluginDependencies>false</includePluginDependencies>
-                    <classpathScope>runtime</classpathScope>
-                    <systemProperties>
-                        <property>
-                            <key>java.util.logging.config.file</key>
-                            <value>logging.properties</value>
-                        </property>
-                    </systemProperties>
-                </configuration>
-            </plugin>
-        </plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<configuration>
+					<mainClass>${target.main.class}</mainClass>
+					<includePluginDependencies>false</includePluginDependencies>
+					<classpathScope>runtime</classpathScope>
+					<systemProperties>
+						<property>
+							<key>java.util.logging.config.file</key>
+							<value>logging.properties</value>
+						</property>
+					</systemProperties>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot-version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
 	</build>
 
-    <profiles>
-        <profile>
-            <id>CamelGo</id>
-            <properties>
-                <target.main.class>com.camel.App</target.main.class>
-            </properties>
-        </profile>
+	<profiles>
+		<profile>
+			<id>CamelGo</id>
+			<properties>
+				<target.main.class>com.camel.App</target.main.class>
+			</properties>
+		</profile>
 
-        <profile>
-            <id>JMSClient</id>
-            <properties>
-                <target.main.class>com.jms.Client</target.main.class>
-            </properties>
-        </profile>
+		<profile>
+			<id>JMSClient</id>
+			<properties>
+				<target.main.class>com.jms.Client</target.main.class>
+			</properties>
+		</profile>
 
-        <profile>
-            <id>JMSServer</id>
-            <properties>
-                <target.main.class>com.jms.Server</target.main.class>
-            </properties>
-        </profile>
-    </profiles>
+		<profile>
+			<id>JMSServer</id>
+			<properties>
+				<target.main.class>com.jms.Server</target.main.class>
+			</properties>
+		</profile>
+	</profiles>
 </project>
