@@ -103,12 +103,12 @@
 			<version>${camel.version}</version>
 		</dependency> -->
 
-		<!-- https://mvnrepository.com/artifact/org.json/json 
+		<!-- https://mvnrepository.com/artifact/org.json/json  -->
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20160810</version>
-		</dependency> -->
+		</dependency>
 
 		<!-- spring-boot
 		<dependency>
@@ -153,8 +153,11 @@
 			<scope>runtime</scope>
 		</dependency> -->
 
-		<!-- junit <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
-			</dependency> -->
+		<!-- junit -->
+        <dependency> 
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId> 
+		</dependency> 
 	</dependencies>
 
 	<build>
