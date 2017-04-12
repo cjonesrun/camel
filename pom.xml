@@ -11,28 +11,21 @@
     </properties>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-core -->
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-core</artifactId>
 			<version>5.7.0</version>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-core -->
 		<dependency>
 		    <groupId>org.apache.camel</groupId>
 		    <artifactId>camel-core</artifactId>
             <version>${camel.version}</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
 		    <groupId>org.json</groupId>
 		    <artifactId>json</artifactId>
 		    <version>20160810</version>
 		</dependency>
-
-
 
         <!-- logging -->
         <dependency>
