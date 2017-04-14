@@ -1,0 +1,710 @@
+2017-03-29 20:17:22 [main] INFO  default:16 - Working Directory: /Users/cj/git/camel/working
+2017-03-29 20:17:23 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-29 20:17:23 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-29 20:17:23 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-29 20:17:23 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-29 20:17:23 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-29 20:17:23 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=.%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-29 20:17:23 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-29 20:17:23 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-29 20:17:23 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-29 20:17:23 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.393 seconds
+2017-03-29 20:20:31 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  default:18 - camel.processor.JSONValidator processing: {
+ "a": "b",
+ "comment": "here's a comment i just added",
+ "icy": "hot"
+}
+2017-03-29 20:20:31 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] WARN  camel:165 - Exchange[
+, Id: ID-jerry-56836-1490833042768-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/file.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/file.json-CamelFileLockFileName=/Users/cj/git/camel/working/file.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Wed Mar 29 20:20:31 EDT 2017, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/file.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route2, node=bean1], DefaultMessageHistory[routeId=route2, node=to3]], CamelToEndpoint=log://camel?level=WARN&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-56836-1490833042768-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/file.json, CamelFileLastModified=1490833229000, CamelFileLength=36, CamelFileName=file.json, CamelFileNameConsumed=file.json, CamelFileNameOnly=file.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/file.json, CamelFileRelativePath=file.json}
+, BodyType: String
+, Body: {"A":"B","COMMENT":"HERE'S A COMMENT I JUST ADDED","ICY":"HOT"}
+, Out: null: 
+]
+2017-03-29 20:22:23 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  camel:159 - Exchange[
+, Id: ID-jerry-56836-1490833042768-0-4
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/empty.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/empty.json-CamelFileLockFileName=/Users/cj/git/camel/working/empty.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Wed Mar 29 20:22:23 EDT 2017, CamelExceptionCaught=camel.exceptions.JSONValidationException: Empty JSONObject received., CamelFailureEndpoint=direct://processor, CamelFailureRouteId=route2, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/empty.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route3, node=to4]], CamelToEndpoint=log://camel?multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-56836-1490833042768-0-3, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/empty.json, CamelFileLastModified=1490833343000, CamelFileLength=0, CamelFileName=empty.json, CamelFileNameConsumed=empty.json, CamelFileNameOnly=empty.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/empty.json, CamelFileRelativePath=empty.json}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[/Users/cj/git/camel/working/empty.json]]
+, CaughtExceptionType: camel.exceptions.JSONValidationException, CaughtExceptionMessage: Empty JSONObject received., StackTrace: camel.exceptions.JSONValidationException: Empty JSONObject received.
+	at camel.processor.JSONValidator.process(JSONValidator.java:22)
+	at org.apache.camel.processor.DelegateSyncProcessor.process(DelegateSyncProcessor.java:63)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:460)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:227)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:191)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:175)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:102)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at camel.processor.JSONValidator.process(JSONValidator.java:15)
+	... 27 more
+
+, Out: null: 
+]
+2017-03-29 20:22:23 [main] INFO  DefaultCamelContext:3173 - Apache Camel 2.18.3 (CamelContext: camel-1) is shutting down
+2017-03-29 20:22:23 [main] INFO  DefaultShutdownStrategy:196 - Starting to graceful shutdown 3 routes (timeout 300 seconds)
+2017-03-29 20:22:23 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route3 shutdown complete, was consuming from: direct://errorLogger
+2017-03-29 20:22:23 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route2 shutdown complete, was consuming from: direct://processor
+2017-03-29 20:22:23 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route1 shutdown complete, was consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=.%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-29 20:22:23 [main] INFO  DefaultShutdownStrategy:260 - Graceful shutdown of 3 routes completed in 0 seconds
+2017-03-29 20:22:23 [main] INFO  DefaultCamelContext:3262 - Apache Camel 2.18.3 (CamelContext: camel-1) uptime 5 minutes
+2017-03-29 20:22:23 [main] INFO  DefaultCamelContext:3263 - Apache Camel 2.18.3 (CamelContext: camel-1) is shutdown in 0.027 seconds
+2017-03-29 20:22:36 [main] INFO  default:16 - Working Directory: /Users/cj/git/camel/working
+2017-03-29 20:22:37 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-29 20:22:37 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-29 20:22:37 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-29 20:22:37 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-29 20:22:37 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-29 20:22:37 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=.%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-29 20:22:37 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-29 20:22:37 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-29 20:22:37 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-29 20:22:37 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.332 seconds
+2017-03-29 20:22:46 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  camel:159 - Exchange[
+, Id: ID-jerry-56860-1490833356786-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/empty.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/empty.json-CamelFileLockFileName=/Users/cj/git/camel/working/empty.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Wed Mar 29 20:22:46 EDT 2017, CamelExceptionCaught=camel.exceptions.JSONValidationException: Empty JSONObject received., CamelFailureEndpoint=direct://processor, CamelFailureRouteId=route2, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/empty.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route3, node=to4]], CamelToEndpoint=log://camel?multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-56860-1490833356786-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/empty.json, CamelFileLastModified=1490833364000, CamelFileLength=0, CamelFileName=empty.json, CamelFileNameConsumed=empty.json, CamelFileNameOnly=empty.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/empty.json, CamelFileRelativePath=empty.json}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[/Users/cj/git/camel/working/empty.json]]
+, CaughtExceptionType: camel.exceptions.JSONValidationException, CaughtExceptionMessage: Empty JSONObject received., StackTrace: camel.exceptions.JSONValidationException: Empty JSONObject received.
+	at camel.processor.JSONValidator.process(JSONValidator.java:22)
+	at org.apache.camel.processor.DelegateSyncProcessor.process(DelegateSyncProcessor.java:63)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:460)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:227)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:191)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:175)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:102)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at camel.processor.JSONValidator.process(JSONValidator.java:15)
+	... 27 more
+
+, Out: null: 
+]
+2017-03-29 20:25:31 [main] INFO  default:16 - Working Directory: /Users/cj/git/camel/working
+2017-03-29 20:25:31 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-29 20:25:31 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-29 20:25:31 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-29 20:25:31 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-29 20:25:32 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-29 20:25:32 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=.%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-29 20:25:32 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-29 20:25:32 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-29 20:25:32 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-29 20:25:32 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.352 seconds
+2017-03-29 20:25:43 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  camel:159 - Exchange[
+, Id: ID-jerry-56873-1490833531366-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/empty.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/empty.json-CamelFileLockFileName=/Users/cj/git/camel/working/empty.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Wed Mar 29 20:25:43 EDT 2017, CamelExceptionCaught=camel.exceptions.JSONValidationException: Empty JSONObject received., CamelFailureEndpoint=direct://processor, CamelFailureRouteId=route2, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/empty.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route3, node=to4]], CamelToEndpoint=log://camel?multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-56873-1490833531366-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/empty.json, CamelFileLastModified=1490833541000, CamelFileLength=0, CamelFileName=empty.json, CamelFileNameConsumed=empty.json, CamelFileNameOnly=empty.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/empty.json, CamelFileRelativePath=empty.json}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[/Users/cj/git/camel/working/empty.json]]
+, CaughtExceptionType: camel.exceptions.JSONValidationException, CaughtExceptionMessage: Empty JSONObject received., StackTrace: camel.exceptions.JSONValidationException: Empty JSONObject received.
+	at camel.processor.JSONValidator.process(JSONValidator.java:22)
+	at org.apache.camel.processor.DelegateSyncProcessor.process(DelegateSyncProcessor.java:63)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:460)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:227)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:191)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:175)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:102)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at camel.processor.JSONValidator.process(JSONValidator.java:15)
+	... 27 more
+
+, Out: null: 
+]
+2017-03-29 20:26:08 [main] INFO  default:16 - Working Directory: /Users/cj/git/camel/working
+2017-03-29 20:26:49 [main] INFO  default:16 - Working Directory: /Users/cj/git/camel/working
+2017-03-29 20:26:50 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-29 20:26:50 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-29 20:26:50 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-29 20:26:50 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-29 20:26:50 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-29 20:26:50 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=.%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-29 20:26:50 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-29 20:26:50 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-29 20:26:50 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-29 20:26:50 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.343 seconds
+2017-03-29 20:26:55 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  camel:159 - Exchange[
+, Id: ID-jerry-56881-1490833609577-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/empty.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/empty.json-CamelFileLockFileName=/Users/cj/git/camel/working/empty.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Wed Mar 29 20:26:55 EDT 2017, CamelExceptionCaught=camel.exceptions.JSONValidationException: Empty JSONObject received., CamelFailureEndpoint=direct://processor, CamelFailureRouteId=route2, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/empty.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route3, node=to4]], CamelToEndpoint=log://camel?multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-56881-1490833609577-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/empty.json, CamelFileLastModified=1490833614000, CamelFileLength=0, CamelFileName=empty.json, CamelFileNameConsumed=empty.json, CamelFileNameOnly=empty.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/empty.json, CamelFileRelativePath=empty.json}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[/Users/cj/git/camel/working/empty.json]]
+, CaughtExceptionType: camel.exceptions.JSONValidationException, CaughtExceptionMessage: Empty JSONObject received., StackTrace: camel.exceptions.JSONValidationException: Empty JSONObject received.
+	at camel.processor.JSONValidator.process(JSONValidator.java:22)
+	at org.apache.camel.processor.DelegateSyncProcessor.process(DelegateSyncProcessor.java:63)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:460)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:227)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:191)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:175)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:102)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at camel.processor.JSONValidator.process(JSONValidator.java:15)
+	... 27 more
+
+, Out: null: 
+]
+2017-03-29 20:27:15 [main] INFO  default:16 - Working Directory: /Users/cj/git/camel/working
+2017-03-29 20:27:15 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-29 20:27:15 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-29 20:27:15 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-29 20:27:15 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-29 20:27:16 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-29 20:27:16 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=.%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-29 20:27:16 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-29 20:27:16 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-29 20:27:16 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-29 20:27:16 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.391 seconds
+2017-03-29 20:28:17 [main] INFO  default:16 - Working Directory: /Users/cj/git/camel/working
+2017-03-29 20:28:17 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-29 20:28:17 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-29 20:28:17 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-29 20:28:17 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-29 20:28:17 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-29 20:28:17 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=.%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-29 20:28:17 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-29 20:28:17 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-29 20:28:17 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-29 20:28:17 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.396 seconds
+2017-03-29 20:28:27 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  camel:159 - Exchange[
+, Id: ID-jerry-56887-1490833697140-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/empty.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/empty.json-CamelFileLockFileName=/Users/cj/git/camel/working/empty.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Wed Mar 29 20:28:26 EDT 2017, CamelExceptionCaught=camel.exceptions.JSONValidationException: Empty JSONObject received., CamelFailureEndpoint=direct://processor, CamelFailureRouteId=route2, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/empty.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route3, node=to4]], CamelToEndpoint=log://camel?multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-56887-1490833697140-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/empty.json, CamelFileLastModified=1490833705000, CamelFileLength=0, CamelFileName=empty.json, CamelFileNameConsumed=empty.json, CamelFileNameOnly=empty.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/empty.json, CamelFileRelativePath=empty.json}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[/Users/cj/git/camel/working/empty.json]]
+, CaughtExceptionType: camel.exceptions.JSONValidationException, CaughtExceptionMessage: Empty JSONObject received., StackTrace: camel.exceptions.JSONValidationException: Empty JSONObject received.
+	at camel.processor.JSONValidator.process(JSONValidator.java:22)
+	at org.apache.camel.processor.DelegateSyncProcessor.process(DelegateSyncProcessor.java:63)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:460)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:227)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:191)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:175)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:102)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at camel.processor.JSONValidator.process(JSONValidator.java:15)
+	... 27 more
+
+, Out: null: 
+]
+2017-03-29 20:33:17 [main] INFO  DefaultCamelContext:3173 - Apache Camel 2.18.3 (CamelContext: camel-1) is shutting down
+2017-03-29 20:33:18 [main] INFO  DefaultShutdownStrategy:196 - Starting to graceful shutdown 3 routes (timeout 300 seconds)
+2017-03-29 20:33:18 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route3 shutdown complete, was consuming from: direct://errorLogger
+2017-03-29 20:33:18 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route2 shutdown complete, was consuming from: direct://processor
+2017-03-29 20:33:18 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route1 shutdown complete, was consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=.%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-29 20:33:18 [main] INFO  DefaultShutdownStrategy:260 - Graceful shutdown of 3 routes completed in 0 seconds
+2017-03-29 20:33:18 [main] INFO  DefaultCamelContext:3262 - Apache Camel 2.18.3 (CamelContext: camel-1) uptime 5 minutes
+2017-03-29 20:33:18 [main] INFO  DefaultCamelContext:3263 - Apache Camel 2.18.3 (CamelContext: camel-1) is shutdown in 0.094 seconds
+2017-03-29 20:50:14 [main] INFO  camel:16 - Working Directory: /Users/cj/git/camel/working package camel
+2017-03-29 20:50:20 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  camel:159 - Exchange[
+, Id: ID-jerry-57388-1490835014700-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/empty.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/empty.json-CamelFileLockFileName=/Users/cj/git/camel/working/empty.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Wed Mar 29 20:50:20 EDT 2017, CamelExceptionCaught=camel.exceptions.JSONValidationException: Empty JSONObject received., CamelFailureEndpoint=direct://processor, CamelFailureRouteId=route2, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/empty.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route3, node=to4]], CamelToEndpoint=log://camel?multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-57388-1490835014700-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/empty.json, CamelFileLastModified=1490835019000, CamelFileLength=0, CamelFileName=empty.json, CamelFileNameConsumed=empty.json, CamelFileNameOnly=empty.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/empty.json, CamelFileRelativePath=empty.json}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[/Users/cj/git/camel/working/empty.json]]
+, CaughtExceptionType: camel.exceptions.JSONValidationException, CaughtExceptionMessage: Empty JSONObject received., StackTrace: camel.exceptions.JSONValidationException: Empty JSONObject received.
+	at camel.processor.JSONValidator.process(JSONValidator.java:22)
+	at org.apache.camel.processor.DelegateSyncProcessor.process(DelegateSyncProcessor.java:63)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:460)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:227)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:191)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:175)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:102)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at camel.processor.JSONValidator.process(JSONValidator.java:15)
+	... 27 more
+
+, Out: null: 
+]
+2017-03-29 21:03:12 [main] INFO  camel:16 - Working Directory: /Users/cj/git/camel/working package camel
+2017-03-29 21:03:12 [main] INFO  one:17 - camel.one log msg
+2017-03-29 21:03:12 [main] INFO  two:18 - camel.two log msg
+2017-03-29 21:03:30 [main] INFO  one:17 - camel.one log msg
+2017-03-29 21:03:30 [main] INFO  two:18 - camel.two log msg
+2017-03-29 21:04:32 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package camel
+2017-03-29 21:04:32 [main] INFO  one:17 - camel.one log msg
+2017-03-29 21:04:32 [main] INFO  two:18 - camel.two log msg
+2017-03-30 07:39:18 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 07:41:59 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 07:42:51 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 07:42:51 [main] INFO  one:17 - camel.one log msg
+2017-03-30 07:42:51 [main] ERROR two:18 - camel.two log msg
+2017-03-30 07:53:14 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 07:53:14 [main] INFO  one:17 - camel.one log msg
+2017-03-30 07:53:14 [main] ERROR two:18 - camel.two log msg
+2017-03-30 07:53:14 [main] ERROR App:13 - package com.camel
+2017-03-30 07:55:47 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 07:55:47 [main] INFO  one:17 - camel.one log msg
+2017-03-30 07:55:47 [main] ERROR two:18 - camel.two log msg
+2017-03-30 07:55:47 [main] ERROR App:13 - package: [package com.camel]
+2017-03-30 07:56:38 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 07:56:38 [main] INFO  one:17 - camel.one log msg
+2017-03-30 07:56:38 [main] ERROR two:18 - camel.two log msg
+2017-03-30 07:56:38 [main] ERROR App:13 - package: [com.camel.Routes]
+2017-03-30 07:56:54 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] ERROR Routes:156 - Exchange[
+, Id: ID-jerry-59852-1490874998368-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/empty.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/empty.json-CamelFileLockFileName=/Users/cj/git/camel/working/empty.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Thu Mar 30 07:56:54 EDT 2017, CamelExceptionCaught=com.camel.exceptions.JSONValidationException: Empty JSONObject received., CamelFailureEndpoint=direct://processor, CamelFailureRouteId=route2, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/empty.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route3, node=to4]], CamelToEndpoint=log://com.camel.Routes?level=error&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-59852-1490874998368-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/empty.json, CamelFileLastModified=1490875013000, CamelFileLength=0, CamelFileName=empty.json, CamelFileNameConsumed=empty.json, CamelFileNameOnly=empty.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/empty.json, CamelFileRelativePath=empty.json}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[/Users/cj/git/camel/working/empty.json]]
+, CaughtExceptionType: com.camel.exceptions.JSONValidationException, CaughtExceptionMessage: Empty JSONObject received., StackTrace: com.camel.exceptions.JSONValidationException: Empty JSONObject received.
+	at com.camel.processor.JSONValidator.process(JSONValidator.java:22)
+	at org.apache.camel.processor.DelegateSyncProcessor.process(DelegateSyncProcessor.java:63)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:460)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:227)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:191)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:175)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:102)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at com.camel.processor.JSONValidator.process(JSONValidator.java:15)
+	... 27 more
+
+, Out: null: 
+]
+2017-03-30 07:57:41 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 07:57:41 [main] INFO  one:17 - camel.one log msg
+2017-03-30 07:57:41 [main] ERROR two:18 - camel.two log msg
+2017-03-30 07:57:41 [main] ERROR App:13 - package: [com.camel.Routes]
+2017-03-30 07:58:05 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] ERROR Routes:156 - Exchange[
+, Id: ID-jerry-59860-1490875061352-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/empty.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/empty.json-CamelFileLockFileName=/Users/cj/git/camel/working/empty.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Thu Mar 30 07:58:05 EDT 2017, CamelExceptionCaught=com.camel.exceptions.JSONValidationException: Empty JSONObject received., CamelFailureEndpoint=direct://processor, CamelFailureRouteId=route2, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/empty.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route3, node=to4]], CamelToEndpoint=log://com.camel.Routes?level=error&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-59860-1490875061352-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/empty.json, CamelFileLastModified=1490875084000, CamelFileLength=0, CamelFileName=empty.json, CamelFileNameConsumed=empty.json, CamelFileNameOnly=empty.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/empty.json, CamelFileRelativePath=empty.json}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[/Users/cj/git/camel/working/empty.json]]
+, CaughtExceptionType: com.camel.exceptions.JSONValidationException, CaughtExceptionMessage: Empty JSONObject received., StackTrace: com.camel.exceptions.JSONValidationException: Empty JSONObject received.
+	at com.camel.processor.JSONValidator.process(JSONValidator.java:22)
+	at org.apache.camel.processor.DelegateSyncProcessor.process(DelegateSyncProcessor.java:63)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:460)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:227)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:191)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:175)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:102)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at com.camel.processor.JSONValidator.process(JSONValidator.java:15)
+	... 27 more
+
+, Out: null: 
+]
+2017-03-30 07:59:31 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 07:59:31 [main] INFO  one:17 - camel.one log msg
+2017-03-30 07:59:31 [main] ERROR two:18 - camel.two log msg
+2017-03-30 07:59:31 [main] ERROR App:13 - package: [com.camel.Routes]
+2017-03-30 07:59:54 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] ERROR Routes:156 - Exchange[
+, Id: ID-jerry-59865-1490875171152-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/empty.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/empty.json-CamelFileLockFileName=/Users/cj/git/camel/working/empty.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Thu Mar 30 07:59:54 EDT 2017, CamelExceptionCaught=com.camel.exceptions.JSONValidationException: Empty JSONObject received., CamelFailureEndpoint=direct://processor, CamelFailureRouteId=route2, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/empty.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route3, node=to4]], CamelToEndpoint=log://com.camel.Routes?level=error&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-59865-1490875171152-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/empty.json, CamelFileLastModified=1490875193000, CamelFileLength=0, CamelFileName=empty.json, CamelFileNameConsumed=empty.json, CamelFileNameOnly=empty.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/empty.json, CamelFileRelativePath=empty.json}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[/Users/cj/git/camel/working/empty.json]]
+, CaughtExceptionType: com.camel.exceptions.JSONValidationException, CaughtExceptionMessage: Empty JSONObject received., StackTrace: com.camel.exceptions.JSONValidationException: Empty JSONObject received.
+	at com.camel.processor.JSONValidator.process(JSONValidator.java:22)
+	at org.apache.camel.processor.DelegateSyncProcessor.process(DelegateSyncProcessor.java:63)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:460)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:227)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:191)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:175)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:102)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at com.camel.processor.JSONValidator.process(JSONValidator.java:15)
+	... 27 more
+
+, Out: null: 
+]
+2017-03-30 08:00:36 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 08:00:36 [main] INFO  one:17 - camel.one log msg
+2017-03-30 08:00:36 [main] ERROR two:18 - camel.two log msg
+2017-03-30 08:00:37 [main] ERROR App:13 - package: [com.camel.Routes]
+2017-03-30 08:01:04 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 08:01:04 [main] INFO  one:17 - camel.one log msg
+2017-03-30 08:01:04 [main] ERROR two:18 - camel.two log msg
+2017-03-30 08:01:04 [main] ERROR App:13 - package: [com.camel.Routes]
+2017-03-30 08:01:04 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-30 08:01:04 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-30 08:01:04 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-30 08:01:05 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-30 08:01:05 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-30 08:01:05 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-30 08:01:05 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-30 08:01:05 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-30 08:01:05 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-30 08:01:05 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.336 seconds
+2017-03-30 08:01:44 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  App:18 - com.camel.processor.JSONValidator processing: {
+ "a": "b",
+ "comment": "here's a comment i just added",
+ "icy": "hot"
+}
+2017-03-30 08:01:44 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  Routes:159 - Exchange[
+, Id: ID-jerry-59871-1490875264473-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/file.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/file.json-CamelFileLockFileName=/Users/cj/git/camel/working/file.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Thu Mar 30 08:01:44 EDT 2017, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/file.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route2, node=bean1], DefaultMessageHistory[routeId=route2, node=to3]], CamelToEndpoint=log://com.camel.Routes?level=info&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-59871-1490875264473-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/file.json, CamelFileLastModified=1490875303000, CamelFileLength=36, CamelFileName=file.json, CamelFileNameConsumed=file.json, CamelFileNameOnly=file.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/file.json, CamelFileRelativePath=file.json}
+, BodyType: String
+, Body: {"A":"B","COMMENT":"HERE'S A COMMENT I JUST ADDED","ICY":"HOT"}
+, Out: null: 
+]
+2017-03-30 08:06:05 [main] INFO  DefaultCamelContext:3173 - Apache Camel 2.18.3 (CamelContext: camel-1) is shutting down
+2017-03-30 08:06:05 [main] INFO  DefaultShutdownStrategy:196 - Starting to graceful shutdown 3 routes (timeout 300 seconds)
+2017-03-30 08:06:05 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route3 shutdown complete, was consuming from: direct://errorLogger
+2017-03-30 08:06:05 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route2 shutdown complete, was consuming from: direct://processor
+2017-03-30 08:06:05 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route1 shutdown complete, was consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-30 08:06:05 [main] INFO  DefaultShutdownStrategy:260 - Graceful shutdown of 3 routes completed in 0 seconds
+2017-03-30 08:06:05 [main] INFO  DefaultCamelContext:3262 - Apache Camel 2.18.3 (CamelContext: camel-1) uptime 5 minutes
+2017-03-30 08:06:05 [main] INFO  DefaultCamelContext:3263 - Apache Camel 2.18.3 (CamelContext: camel-1) is shutdown in 0.028 seconds
+2017-03-30 08:11:26 [main] ERROR two:18 - camel.two log msg
+2017-03-30 08:11:26 [main] ERROR App:13 - package: [com.camel.Routes]
+2017-03-30 08:11:26 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-30 08:11:26 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-30 08:11:26 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-30 08:11:27 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-30 08:11:27 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-30 08:11:27 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-30 08:11:27 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-30 08:11:27 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-30 08:11:27 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-30 08:11:27 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.308 seconds
+2017-03-30 08:14:23 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-30 08:14:23 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-30 08:14:23 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-30 08:14:23 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-30 08:14:23 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-30 08:14:24 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-30 08:14:24 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-30 08:14:24 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-30 08:14:24 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-30 08:14:24 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.348 seconds
+2017-03-30 08:15:19 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-30 08:15:19 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-30 08:15:19 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-30 08:15:19 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-30 08:15:19 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-30 08:15:19 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-30 08:15:19 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-30 08:15:19 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-30 08:15:19 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-30 08:15:19 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.346 seconds
+2017-03-30 08:15:25 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-30 08:15:25 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-30 08:15:25 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-30 08:15:25 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-30 08:15:26 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-30 08:15:26 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-30 08:15:26 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-30 08:15:26 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-30 08:15:26 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-30 08:15:26 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.438 seconds
+2017-03-30 08:17:07 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-30 08:17:07 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-30 08:17:07 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-30 08:17:08 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-30 08:17:08 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-30 08:17:08 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-30 08:17:08 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-30 08:17:08 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-30 08:17:08 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-30 08:17:08 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.437 seconds
+2017-03-30 08:18:06 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-30 08:18:06 [main] INFO  one:17 - camel.one log msg
+2017-03-30 08:18:06 [main] ERROR two:18 - camel.two log msg
+2017-03-30 08:18:06 [main] ERROR App:13 - package: [com.camel.Routes]
+2017-03-30 08:18:07 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-30 08:18:07 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-30 08:18:07 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-30 08:18:07 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-30 08:18:07 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-30 08:18:07 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-30 08:18:07 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-30 08:18:07 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-30 08:18:07 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-30 08:18:07 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.385 seconds
+2017-03-31 07:42:46 [main] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-03-31 07:42:46 [main] INFO  one:17 - camel.one log msg
+2017-03-31 07:42:46 [main] ERROR two:18 - camel.two log msg
+2017-03-31 07:42:46 [main] ERROR App:13 - package: [com.camel.Routes]
+2017-03-31 07:42:46 [main] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-03-31 07:42:46 [main] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-03-31 07:42:46 [main] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-03-31 07:42:46 [main] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-03-31 07:42:47 [main] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-03-31 07:42:47 [main] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-31 07:42:47 [main] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-03-31 07:42:47 [main] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-03-31 07:42:47 [main] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-03-31 07:42:47 [main] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.399 seconds
+2017-03-31 07:47:47 [main] INFO  DefaultCamelContext:3173 - Apache Camel 2.18.3 (CamelContext: camel-1) is shutting down
+2017-03-31 07:47:47 [main] INFO  DefaultShutdownStrategy:196 - Starting to graceful shutdown 3 routes (timeout 300 seconds)
+2017-03-31 07:47:47 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route3 shutdown complete, was consuming from: direct://errorLogger
+2017-03-31 07:47:47 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route2 shutdown complete, was consuming from: direct://processor
+2017-03-31 07:47:47 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route1 shutdown complete, was consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-03-31 07:47:47 [main] INFO  DefaultShutdownStrategy:260 - Graceful shutdown of 3 routes completed in 0 seconds
+2017-03-31 07:47:47 [main] INFO  DefaultCamelContext:3262 - Apache Camel 2.18.3 (CamelContext: camel-1) uptime 5 minutes
+2017-03-31 07:47:47 [main] INFO  DefaultCamelContext:3263 - Apache Camel 2.18.3 (CamelContext: camel-1) is shutdown in 0.036 seconds
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  App:16 - Working Directory: /Users/cj/git/camel/working package com.camel
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  one:17 - camel.one log msg
+2017-04-12 07:43:03 [com.camel.App.main()] ERROR two:18 - camel.two log msg
+2017-04-12 07:43:03 [com.camel.App.main()] ERROR App:13 - package: [com.camel.Routes]
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  DefaultTypeConverter:56 - Loaded 189 type converters
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  DefaultCamelContext:2905 - Apache Camel 2.18.3 (CamelContext: camel-1) is starting
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  ManagedManagementStrategy:191 - JMX is enabled
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  DefaultRuntimeEndpointRegistry:203 - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  DefaultCamelContext:3152 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  DefaultCamelContext:3693 - Route: route1 started and consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  DefaultCamelContext:3693 - Route: route2 started and consuming from: direct://processor
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  DefaultCamelContext:3693 - Route: route3 started and consuming from: direct://errorLogger
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  DefaultCamelContext:2947 - Total 3 routes, of which 3 are started.
+2017-04-12 07:43:03 [com.camel.App.main()] INFO  DefaultCamelContext:2948 - Apache Camel 2.18.3 (CamelContext: camel-1) started in 0.360 seconds
+2017-04-12 07:43:41 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  App:18 - com.camel.processor.JSONValidator processing: {
+ "a": "b",
+ "comment": "here's a comment i just added",
+ "icy": "hot"
+}
+2017-04-12 07:43:41 [Camel (camel-1) thread #0 - file:///Users/cj/git/camel/working] INFO  Routes:159 - Exchange[
+, Id: ID-jerry-53098-1491997383116-0-2
+, ExchangePattern: InOnly
+, Properties: {/Users/cj/git/camel/working/file.json-CamelFileLockFileAcquired=true, /Users/cj/git/camel/working/file.json-CamelFileLockFileName=/Users/cj/git/camel/working/file.json.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Wed Apr 12 07:43:41 EDT 2017, CamelFileExchangeFile=GenericFile[/Users/cj/git/camel/working/file.json], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=process1], DefaultMessageHistory[routeId=route2, node=bean1], DefaultMessageHistory[routeId=route2, node=to3]], CamelToEndpoint=log://com.camel.Routes?level=INFO&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-jerry-53098-1491997383116-0-1, CamelFileAbsolute=true, CamelFileAbsolutePath=/Users/cj/git/camel/working/file.json, CamelFileLastModified=1491997419000, CamelFileLength=36, CamelFileName=file.json, CamelFileNameConsumed=file.json, CamelFileNameOnly=file.json, CamelFileParent=/Users/cj/git/camel/working, CamelFilePath=/Users/cj/git/camel/working/file.json, CamelFileRelativePath=file.json}
+, BodyType: String
+, Body: {"A":"B","COMMENT":"HERE'S A COMMENT I JUST ADDED","ICY":"HOT"}
+, Out: null: 
+]
+2017-04-12 07:48:03 [com.camel.App.main()] INFO  DefaultCamelContext:3173 - Apache Camel 2.18.3 (CamelContext: camel-1) is shutting down
+2017-04-12 07:48:03 [com.camel.App.main()] INFO  DefaultShutdownStrategy:196 - Starting to graceful shutdown 3 routes (timeout 300 seconds)
+2017-04-12 07:48:03 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route3 shutdown complete, was consuming from: direct://errorLogger
+2017-04-12 07:48:03 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route2 shutdown complete, was consuming from: direct://processor
+2017-04-12 07:48:03 [Camel (camel-1) thread #1 - ShutdownTask] INFO  DefaultShutdownStrategy:669 - Route: route1 shutdown complete, was consuming from: file:///Users/cj/git/camel/working?delay=2000&include=.*.json&move=%2FUsers%2Fcj%2Fgit%2Fcamel%2Fworking%2Foriginal%2F%24%7Bfile%3Aname%7D
+2017-04-12 07:48:03 [com.camel.App.main()] INFO  DefaultShutdownStrategy:260 - Graceful shutdown of 3 routes completed in 0 seconds
+2017-04-12 07:48:04 [com.camel.App.main()] INFO  DefaultCamelContext:3262 - Apache Camel 2.18.3 (CamelContext: camel-1) uptime 5 minutes
+2017-04-12 07:48:04 [com.camel.App.main()] INFO  DefaultCamelContext:3263 - Apache Camel 2.18.3 (CamelContext: camel-1) is shutdown in 0.039 seconds
+2017-04-12 08:05:55 [com.jms.Server.main()] INFO  BrokerService:619 - Using Persistence Adapter: MemoryPersistenceAdapter
+2017-04-12 08:05:55 [com.jms.Server.main()] INFO  BrokerService:659 - Apache ActiveMQ 5.7.0 (localhost, ID:jerry-53283-1491998755794-0:1) is starting
+2017-04-12 08:05:55 [com.jms.Server.main()] INFO  TransportServerThreadSupport:72 - Listening for connections at: tcp://localhost:61616
+2017-04-12 08:05:55 [com.jms.Server.main()] INFO  TransportConnector:246 - Connector tcp://localhost:61616 Started
+2017-04-12 08:05:55 [com.jms.Server.main()] INFO  BrokerService:696 - Apache ActiveMQ 5.7.0 (localhost, ID:jerry-53283-1491998755794-0:1) started
+2017-04-12 08:05:55 [com.jms.Server.main()] INFO  BrokerService:698 - For help or more information please see: http://activemq.apache.org
+2017-04-14 06:27:19 [ActiveMQ ShutdownHook] INFO  BrokerService:730 - Apache ActiveMQ 5.7.0 (localhost, ID:jerry-53283-1491998755794-0:1) is shutting down
+2017-04-14 06:27:20 [ActiveMQ ShutdownHook] INFO  TransportConnector:286 - Connector tcp://localhost:61616 Stopped
+2017-04-14 06:27:20 [ActiveMQ ShutdownHook] INFO  BrokerService:806 - Apache ActiveMQ 5.7.0 (localhost, ID:jerry-53283-1491998755794-0:1) uptime 1 day 22 hours
+2017-04-14 06:27:20 [ActiveMQ ShutdownHook] INFO  BrokerService:809 - Apache ActiveMQ 5.7.0 (localhost, ID:jerry-53283-1491998755794-0:1) is shutdown
